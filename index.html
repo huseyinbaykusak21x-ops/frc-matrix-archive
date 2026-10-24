@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRC Matrix Archive | 2025-2026</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+      background-color: #030704;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    /* Glassmorphism Effect */
+    .glass-panel {
+      background: rgba(4, 15, 8, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .glass-panel:hover {
+      border-color: rgba(16, 185, 129, 0.7);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+    }
+
+    /* Glow Effects */
+    .glow-matrix {
+      box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+      text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+    }
+
+    .glow-text-green {
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative bg-black">
+
+  <!-- Matrix Canvas Arka Planı (0 ve 1 Yağmuru) -->
+  <canvas id="matrix-canvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-40 pointer-events-none"></canvas>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-emerald-900/50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-3 h-3 bg-emerald-400 rounded-full animate-ping"></div>
+        <h1 class="text-xl font-bold tracking-wider text-emerald-400 font-mono">[SYSTEM.FRC_ARCHIVE]</h1>
+      </div>
+      <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide font-mono">
+        <a href="#hero" class="text-emerald-400 hover:text-emerald-300 transition-colors">&gt; ANA_SAYFA</a>
+        <a href="#teams" class="text-slate-300 hover:text-emerald-400 transition-colors">&gt; TAKIM_ANALİZLERİ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative py-16 px-6 text-center max-w-5xl mx-auto">
+    <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-emerald-500/40 bg-emerald-950/80 text-emerald-400 text-xs font-mono glow-matrix">
+      // SYSTEM_INITIALIZED: 2025 - 2026 FRC_DATABASE
+    </div>
+    <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+      FRC Takımları & <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-300 to-cyan-400">Matrix Analiz Terminali</span>
+    </h2>
+    <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto mb-6 font-mono">
+      BirchBots, PrepaTec - Nautilus ve The P-TECH fly-Bots robotik takımlarının turnuva detayları, ödülleri ve saha performans analizleri.
+    </p>
+  </section>
+
+  <!-- Teams Section -->
+  <main id="teams" class="max-w-7xl mx-auto px-6 py-8 w-full">
+    <div class="flex items-center justify-between mb-8 border-b border-emerald-900/50 pb-4">
+      <div>
+        <h3 class="text-2xl font-bold text-emerald-400 font-mono">&gt; HEDEF_TAKIMLAR</h3>
+        <p class="text-xs text-slate-400 font-mono">Turnuva bilgileri, dereceler ve detaylı mekanik matris incelemesi</p>
+      </div>
+      <span class="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded border border-emerald-500/30">STATUS: 3_TEAMS_LOADED</span>
+    </div>
+
+    <!-- Dynamic Team Cards Container -->
+    <div id="teams-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- JavaScript burayı dolduracak -->
+    </div>
+  </main>
+
+  <!-- Footer (Imzalı Alan) -->
+  <footer class="glass-panel mt-20 border-t border-emerald-900/50 py-8 text-center font-mono">
+    <div class="max-w-7xl mx-auto px-6 space-y-2">
+      <p class="text-sm text-emerald-400 tracking-wider">
+        Created by <span class="text-white font-bold glow-text-green">Muhammet Hüseyin Baykuşak</span>
+      </p>
+      <p class="text-xs text-slate-400 tracking-wide">
+        Halil Bekmezci Anatolian High School Robotics Club
+      </p>
+      <p class="text-[10px] text-emerald-700 pt-2">
+        © 2026 MATRIX_ROBOTICS_ARCHIVE // ALL RIGHTS RESERVED
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script: Veriler ve İşleyiciler -->
+  <script>
+    const frcTeamsData = [
+      {
+        id: "birchbots",
+        teamNumber: "Team BirchBots",
+        season: "2025-2026",
+        name: "BirchBots",
+        location: "İstanbul Regional / Türkiye (Bölgesel Etkinlik)",
+        rank: "Finalist / Sıralama: 4. Liderlik (Alliance Captain)",
+        awards: [
+          "Engineering Inspiration Award (Mühendislik İlham Ödülü)",
+          "Highest Rookie Seed (Sezon Geçmişi Başarısı)"
+        ],
+        tagline: "Yüksek Hassasiyetli Otonom Süreçler & Dayanıklı Şasi Mimarisi",
+        description: "2025-2026 FRC Sezonunda BirchBots, otonom tırmanma sistemleri ve optimize edilmiş mekanik altyapısı ile dikkat çekti.",
+        pros: [
+          "Hızlı ve stabil otonom başlama rutinleri",
+          "Yüksek torklu alüminyum modüler şasi tasarımı",
+          "Gelişmiş Vision/Kamera takibi ile hassas hedefleme"
+        ],
+        cons: [
+          "Ağır batarya tüketimi nedeniyle maç sonlarına doğru performans düşüşü",
+          "Pnömatik sistemlerin bakım zorluğu"
+        ],
+        stats: { speed: "88%", durability: "94%", autonomous: "90%" }
+      },
+      {
+        id: "nautilus",
+        teamNumber: "Team PrepaTec - Nautilus",
+        season: "2025-2026",
+        name: "PrepaTec - Nautilus",
+        location: "Houston / Texas Championship & Meksika Bölgeseli",
+        rank: "Bölge Şampiyonu (Regional Winner) / Dünya Şampiyonası Çeyrek Finalist",
+        awards: [
+          "Chairman's / FIRST Impact Award Finalisti",
+          "Creativity Award sponsored by BAE Systems"
+        ],
+        tagline: "Derin Mühendislik & Esnek Toplama (Intake) Mekanizmaları",
+        description: "Nautilus ekibi, sahada oyun nesnelerini en hızlı toplayan ve yüksek manevra kabiliyetine sahip Swerve drive robotuyla öne çıktı.",
+        pros: [
+          "Swerve Drive sayesinde 360 derece anlık manevra kabiliyeti",
+          "Çok yönlü ve hızlı top/obje alma (Intake) mekanizması",
+          "Hafif kompozit malzeme kullanımı"
+        ],
+        cons: [
+          "Swerve modüllerinin karmaşık yazılımsal kalibrasyon ihtiyacı",
+          "Darbelere karşı daha hassas dış paneller"
+        ],
+        stats: { speed: "96%", durability: "82%", autonomous: "85%" }
+      },
+      {
+        id: "ptech",
+        teamNumber: "Team The P-TECH fly-Bots",
+        season: "2025-2026",
+        name: "The P-TECH fly-Bots",
+        location: "New York Regional & Off-Season Buluşmaları",
+        rank: "Yarı Finalist (Semi-Finalist) / Sıralama: 6.",
+        awards: [
+          "Autonomous Award sponsored by Qualcomm",
+          "Quality Award (Kalite ve Sağlamlık Ödülü)"
+        ],
+        tagline: "Aerodinamik Atış Sistemleri & Akıllı Sensör Entegrasyonu",
+        description: "The P-TECH fly-Bots, mesafe tanımaksızın skora dönük yüksek açılı atış sistemleri ve entegre PID kontrolcüler ile sahadaydı.",
+        pros: [
+          "PID kontrollü, yüksek tutarlılığa sahip atış mekanizması (Shooter)",
+          "Kolay müdahale edilebilir modüler kablolama ve kontrol kartı yerleşimi",
+          "Düşük ağırlık merkezi sayesinde devrilme riskinin olmaması"
+        ],
+        cons: [
+          "Tırmanma (Climb) mekanizmasının yüksek seviye tutunmada yavaş kalması",
+          "Aşırı ısınmaya eğilimli yüksek devirli motorlar"
+        ],
+        stats: { speed: "84%", durability: "89%", autonomous: "92%" }
+      }
+    ];
+
+    function renderTeamCards() {
+      const container = document.getElementById("teams-container");
+      if (!container) return;
+
+      container.innerHTML = frcTeamsData.map(team => `
+        <div class="glass-panel rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 relative flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs font-mono tracking-widest text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-500/30">
+                ${team.season}
+              </span>
+              <span class="text-xs font-mono text-slate-400">${team.teamNumber}</span>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mb-2 font-mono glow-text-green">${team.name}</h3>
+            <p class="text-xs text-emerald-300/80 mb-4 font-mono">// ${team.tagline}</p>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed font-sans">${team.description}</p>
+            
+            <div class="space-y-2 mb-6 bg-emerald-950/20 p-4 rounded-xl border border-emerald-500/20 text-xs font-mono">
+              <div class="text-emerald-300">
+                <span class="font-bold text-emerald-400">📍 Yarışma Yeri:</span> ${team.location}
+              </div>
+              <div class="text-emerald-300">
+                <span class="font-bold text-emerald-400">🏆 Turnuva Derecesi:</span> ${team.rank}
+              </div>
+            </div>
+
+            <div class="mb-6 bg-black/50 border border-amber-500/30 p-3 rounded-lg text-xs font-mono">
+              <span class="font-bold text-amber-400 block mb-1">🏅 KAZANILAN ÖDÜLLER:</span>
+              <ul class="list-disc list-inside text-amber-200/90 space-y-1">
+                ${team.awards.map(award => `<li>${award}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="space-y-3 mb-6 bg-black/60 p-4 rounded-xl border border-emerald-900/40 font-mono">
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-slate-400">Hız & Manevra</span>
+                  <span class="text-emerald-400 font-bold">${team.stats.speed}</span>
+                </div>
+                <div class="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-gradient-to-r from-emerald-600 to-emerald-400 h-full rounded-full" style="width: ${team.stats.speed}"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-slate-400">Dayanıklılık</span>
+                  <span class="text-cyan-400 font-bold">${team.stats.durability}</span>
+                </div>
+                <div class="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-gradient-to-r from-teal-600 to-cyan-400 h-full rounded-full" style="width: ${team.stats.durability}"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mb-4 text-xs font-mono">
+              <div class="bg-emerald-950/40 border border-emerald-500/30 p-3 rounded-lg">
+                <span class="font-bold text-emerald-400 block mb-1">[+] GÜÇLÜ YÖNLER:</span>
+                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                  ${team.pros.map(pro => `<li>${pro}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="bg-rose-950/30 border border-rose-500/20 p-3 rounded-lg">
+                <span class="font-bold text-rose-400 block mb-1">[-] GELİŞİME AÇIK:</span>
+                <ul class="list-disc list-inside text-slate-300 space-y-1">
+                  ${team.cons.map(con => `<li>${con}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function initMatrixRain() {
+      const canvas = document.getElementById("matrix-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      const characters = "01010101010101_<>{}[]=/*+";
+      const fontSize = 15;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops = Array(columns).fill(1);
+
+      function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#00ff66";
+        ctx.font = `${fontSize}px monospace`;
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = characters.charAt(Math.floor(Math.random() * characters.length));
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(drawMatrix, 33);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTeamCards();
+      initMatrixRain();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Orbitron:wght@400;600;800&display=swap');
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #030704;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Effect - Matrix Style */
+.glass-panel {
+  background: rgba(4, 15, 8, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.glass-panel:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Matrix Neon Glow */
+.glow-matrix {
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+}
